@@ -1,0 +1,82 @@
+#include <stdio.h>
+
+int addition(int a, int b);
+int subtraction(int a, int b);
+int multiplication(int a, int b);
+float division(int a, int b);
+
+int main() {
+    int first, second, choice;
+
+    do {
+        printf("\nMultiple functions to perform Arithmetic Operations\n\n");
+
+        printf("Enter first number: ");
+        scanf("%d", &first);
+
+        printf("Enter second number: ");
+        scanf("%d", &second);
+
+        printf("\nChoose Operation:\n");
+        printf("[1] Addition\n");
+        printf("[2] Subtraction\n");
+        printf("[3] Multiplication\n");
+        printf("[4] Division\n");
+        printf("[5] Exit Program\n");
+
+        printf("\nEnter choice [1-5]: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("\n%d + %d = %d\n",
+                       first, second, addition(first, second));
+                break;
+
+            case 2:
+                printf("\n%d - %d = %d\n",
+                       first, second, subtraction(first, second));
+                break;
+
+            case 3:
+                printf("\n%d * %d = %d\n",
+                       first, second, multiplication(first, second));
+                break;
+
+            case 4:
+                if (second != 0) {
+                    printf("\n%d / %d = %.2f\n",
+                           first, second, division(first, second));
+                } else {
+                    printf("\nError: Cannot divide by zero.\n");
+                }
+                break;
+
+            case 5:
+                printf("\nExiting program...\n");
+                break;
+
+            default:
+                printf("\nInvalid choice. Please choose 1-5.\n");
+        }
+
+    } while (choice != 5);
+
+    return 0;
+}
+
+int addition(int a, int b) {
+    return a + b;
+}
+
+int subtraction(int a, int b) {
+    return a - b;
+}
+
+int multiplication(int a, int b) {
+    return a * b;
+}
+
+float division(int a, int b) {
+    return (float)a / b;
+}
